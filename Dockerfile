@@ -4,9 +4,6 @@ MAINTAINER fastberrypi@gmail.com
 
 # no need to install anything as the base image has all we need
 
-# set DEBIAN_FRONTEND to supress prompt for root password and install mysql-server
-#RUN export DEBIAN_FRONTEND=noninteractive && apt-get -q -y install mysql-server
-
 # now set the mysql root password
 # RUN mysqladmin -u root password fastberry
 
@@ -19,7 +16,7 @@ ADD src/start_mysql.sh /usr/bin/start_mysql.sh
 ADD src/start_apache.sh /usr/bin/start_apache.sh
 ADD src/start_lamp.sh /usr/bin/start_lamp.sh
 
-# start and run apache in the foregroundlamp
+# start the services using our start-up script
 CMD ["/usr/bin/start_lamp.sh"]
 
 
